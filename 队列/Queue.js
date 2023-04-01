@@ -19,7 +19,7 @@ Queue.prototype.pop = function() {
 /**
  * @return {number}
  */
-Queue.prototype.top = function() {
+Queue.prototype.peek = function() {
   return this.isEmpty() ? -1 : this.arr[0];
 };
 

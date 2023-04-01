@@ -45,7 +45,7 @@ MyStack.prototype.pop = function() {
  * @return {number}
  */
 MyStack.prototype.top = function() {
-  return this.queue.top();
+  return this.queue.peek();
 };
 
 /**
