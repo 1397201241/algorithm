@@ -15,7 +15,7 @@ const singleNumber1 = function (nums) {
  * @param {number[]} nums
  * @return {number[]}
  */
-const singleNumber3 = function (nums) {
+const singleNumber2 = function (nums) { // 位运算
   let xorSum = nums.reduce((a, b) => a ^ b);
   let lastOne = xorSum & (~xorSum + 1); // 求出数的最右侧的1，比如00000100
   let singleNumber1 = 0;
@@ -26,4 +26,20 @@ const singleNumber3 = function (nums) {
   }
   return [singleNumber1, singleNumber1 ^ xorSum];
 };
+var singleNumber3 = function(nums) { //暴力求解
 
+  let singleNumber1 = {};
+  for (let item of nums) {
+    if (singleNumber1.hasOwnProperty(item)) {
+      singleNumber1[item]++;
+    } else singleNumber1[item]=1;
+  }
+  let ans = [];
+  for (let singleNumber1Key in singleNumber1) {
+    if (singleNumber1[singleNumber1Key] === 1) {
+      ans.push(singleNumber1Key)
+    }
+  }
+  return ans;
+};
+singleNumber3([1, 1, 2, 2, 3, 4])
